@@ -25,4 +25,16 @@ public class DoubleList {
         tail.prev = head;
         size = 0;
     }
+
+    /**
+     * Add the node at tail
+     * @param x
+     */
+    public void addLast(Node x) {
+        x.prev = tail.prev;
+        x.next = tail;
+        tail.prev.next = x;
+        tail.prev = x;
+        size++;
+    }
 }
