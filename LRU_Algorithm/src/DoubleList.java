@@ -37,4 +37,31 @@ public class DoubleList {
         tail.prev = x;
         size++;
     }
+
+    /**
+     * Delete given node from double list
+     * @param x
+     */
+    public void remove(Node x) {
+        x.prev.next = x.next;
+        x.next.prev = x.prev;
+        size--;
+    }
+
+    /**
+     * Remove the first element from double list and return this element.
+     * @return
+     */
+    public Node removeFirst() {
+        if (head.next == tail) {
+            return null;
+        }
+
+        Node first = head.next;
+        remove(first);
+        return first;
+    }
+
+    // Return the size of double list.
+    public int size() {return size;}
 }
